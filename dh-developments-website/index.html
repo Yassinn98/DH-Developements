@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DH Developments | Residential Projects in West Cairo</title>
+<meta name="description" content="DH Developments – individual homes and residential compounds in West Cairo. Explore Vera and The Villa in New Zayed.">
+<meta name="theme-color" content="#0b1d30">
+<!-- Fonts: swap or self-host as needed. System fallbacks are defined in --serif / --sans. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+:root{
+  --navy:#0b1d30; --navy-2:#13304d; --gold:#b9975b; --gold-2:#d9bf8c;
+  --sand:#f6f1e7; --sand-2:#ebe2d0; --ink:#1c2531; --muted:#5b6675;
+  --line:rgba(11,29,48,.14); --ok:#2e7d57; --err:#b3382c;
+  --serif:'Cormorant Garamond','Playfair Display',Georgia,serif;
+  --sans:'Inter','Helvetica Neue',Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1); --w:1240px; --nav-h:80px;
+}
+[dir="rtl"]{ --serif:'Noto Naskh Arabic','Cormorant Garamond',serif; --sans:'Cairo','Inter',sans-serif; }
+
+/* =========================================================
+   2. RESET & BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:1rem;line-height:1.7;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0 0 .5em;letter-spacing:.005em}
+h1{font-size:clamp(2.6rem,6vw,4.8rem)} h2{font-size:clamp(2rem,4.2vw,3.2rem)} h3{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.container{width:min(var(--w),100% - 2.5rem);margin-inline:auto}
+.section{padding-block:clamp(64px,9vw,120px)}
+.bg-sand{background:var(--sand)} .bg-navy{background:var(--navy);color:#fff}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip-link{position:fixed;inset-block-start:-60px;inset-inline-start:12px;z-index:200;background:var(--gold);color:var(--navy);padding:.7rem 1rem;font-weight:600;transition:inset-block-start .2s}
+.skip-link:focus{inset-block-start:12px}
+.eyebrow{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}
+[dir="rtl"] .eyebrow{letter-spacing:.04em}
+.eyebrow.light{color:var(--gold-2)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);font-weight:300;max-width:60ch}
+.sec-head{max-width:720px;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head.center{text-align:center;margin-inline:auto}
+.sec-head.row{max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.muted{color:var(--muted)}
+.arrow{display:inline-block;transition:transform .3s var(--ease)}
+[dir="rtl"] .arrow{transform:scaleX(-1)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.8rem;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;border-radius:2px;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+[dir="rtl"] .btn{letter-spacing:.02em;font-size:.9rem}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--navy)} .btn-gold:hover{background:var(--gold-2)}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff} .btn-ghost:hover{background:#fff;color:var(--navy)}
+.btn-dark{background:var(--navy);color:#fff} .btn-dark:hover{background:var(--navy-2)}
+.btn-outline{border-color:var(--navy);color:var(--navy)} .btn-outline:hover{background:var(--navy);color:#fff}
+.btn-wa{background:#1fa855;color:#fff} .btn-wa:hover{background:#17924a}
+.btn-block{width:100%}
+.btn:hover .arrow{transform:translateX(4px)} [dir="rtl"] .btn:hover .arrow{transform:scaleX(-1) translateX(4px)}
+
+/* =========================================================
+   3. IMAGES + PLACEHOLDERS
+   Real images use <img class="pic">. Anything without an image
+   yet falls back to a clearly labelled placeholder box (.ph).
+   ========================================================= */
+.pic{display:block;width:100%;object-fit:cover;background:var(--sand-2);transition:transform .9s var(--ease)}
+.pic-fill{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+.ph{position:relative;width:100%;display:grid;place-items:center;overflow:hidden;color:#fff;transition:transform .9s var(--ease)}
+.ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.045) 0 14px,transparent 14px 28px)}
+.ph::after{content:"";position:absolute;inset:10px;border:1px dashed rgba(255,255,255,.35);pointer-events:none}
+.ph-fill{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+.ph-label{position:relative;text-align:center;padding:1rem 1.6rem;max-width:90%;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.ph-label b{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.ph-label i{display:block;font-style:normal;font-size:.72rem;opacity:.85;margin-top:.15rem}
+.ph-label em{display:block;font-style:normal;font-size:.8rem;opacity:.92;margin-top:.45rem;line-height:1.4}
+.ph-fill .ph-label{position:absolute;inset-block-end:14px;inset-inline-end:14px;text-align:end;max-width:min(360px,60%);background:rgba(0,0,0,.28);padding:.6rem .9rem}
+.tone-1{background:linear-gradient(135deg,#1f4468,#0b1d30)} .tone-2{background:linear-gradient(135deg,#2d5a4e,#10302a)}
+.tone-3{background:linear-gradient(135deg,#8a7a5c,#4a3f2b)} .tone-4{background:linear-gradient(135deg,#3f6a8a,#17324a)}
+.tone-5{background:linear-gradient(135deg,#b49a6e,#6f5a36)} .tone-6{background:linear-gradient(135deg,#55606e,#262e39)}
+.zoom{overflow:hidden} .zoom:hover .ph,.zoom:hover .pic{transform:scale(1.06)}
+
+/* =========================================================
+   4. NAVBAR (sticky, transparent -> solid)
+   ========================================================= */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:100;color:#fff;transition:background .35s,box-shadow .35s,height .35s}
+.nav.solid{background:rgba(11,29,48,.96);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.18);height:68px}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.85rem}
+.brand img{height:42px;width:auto;object-fit:contain;transition:height .35s}
+.nav.solid .brand img{height:36px}
+.brand-name{font-family:var(--serif);font-size:1.35rem;letter-spacing:.16em;font-weight:700;white-space:nowrap}
+[dir="rtl"] .brand-name{letter-spacing:0}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a.link{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;position:relative;padding-block:.4rem}
+[dir="rtl"] .nav-links a.link{letter-spacing:0;font-size:.95rem}
+.nav-links a.link::after{content:"";position:absolute;inset-inline:0;bottom:0;height:1px;background:var(--gold-2);transform:scaleX(0);transition:transform .35s var(--ease)}
+.nav-links a.link:hover::after,.nav-links a.link[aria-current="page"]::after{transform:scaleX(1)}
+.nav-tools{display:flex;align-items:center;gap:1rem}
+.lang-btn{border:1px solid rgba(255,255,255,.5);padding:.4rem .85rem;font-size:.78rem;border-radius:2px;transition:background .3s,color .3s}
+.lang-btn:hover{background:#fff;color:var(--navy)}
+.nav .btn{padding:.7rem 1.2rem}
+.burger{display:none;width:44px;height:44px;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:24px;height:2px;background:#fff;position:relative;transition:transform .3s,background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;inset-inline-start:0}
+.burger span::before{top:-7px} .burger span::after{top:7px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:960px){
+  .burger{display:grid}
+  .nav .btn{display:none}
+  .brand-name{font-size:1.1rem}
+  .nav-links{position:fixed;inset:0 0 0 0;background:var(--navy);flex-direction:column;justify-content:center;gap:1.6rem;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;z-index:-1}
+  .nav-links.open{opacity:1;visibility:visible}
+  .nav-links a.link{font-size:1.1rem}
+  .nav.menu-open{background:var(--navy)}
+}
+@media (max-width:420px){.brand-name{display:none}}
+
+/* =========================================================
+   5. HERO & PAGE BANNERS
+   ========================================================= */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--navy)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,29,48,.6) 0%,rgba(11,29,48,.3) 40%,rgba(11,29,48,.85) 100%)}
+.hero-inner{position:relative;padding-block:calc(var(--nav-h) + 40px) 90px}
+.hero h1{max-width:16ch;margin-bottom:.4em}
+.hero .lead{margin-bottom:2.4rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.page-hero{position:relative;padding:calc(var(--nav-h) + 80px) 0 80px;color:#fff;overflow:hidden;isolation:isolate;background:var(--navy)}
+.page-hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,29,48,.5),rgba(11,29,48,.85))}
+.page-hero .container{position:relative}
+.page-hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);margin-bottom:.3em}
+.crumbs{font-size:.8rem;opacity:.85;margin-bottom:1.2rem}
+.crumbs a:hover{color:var(--gold-2)}
+
+/* =========================================================
+   6. CARDS, CAROUSEL, GRID
+   ========================================================= */
+.card{background:#fff;box-shadow:0 10px 34px rgba(11,29,48,.08);transition:transform .45s var(--ease),box-shadow .45s}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(11,29,48,.16)}
+.card-link{display:block;height:100%}
+.card-media{position:relative;overflow:hidden}
+.card-body{padding:1.5rem 1.6rem 1.8rem}
+.card-body h3{margin-bottom:.3em}
+.card-body p{color:var(--muted);font-size:.95rem}
+.more{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+[dir="rtl"] .more{letter-spacing:0;font-size:.9rem}
+.card:hover .more .arrow{transform:translateX(5px)} [dir="rtl"] .card:hover .more .arrow{transform:scaleX(-1) translateX(5px)}
+.badge{position:absolute;inset-block-start:14px;inset-inline-start:14px;z-index:2;padding:.35rem .8rem;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;border-radius:2px}
+[dir="rtl"] .badge{letter-spacing:0;font-size:.8rem}
+.badge.ready{background:var(--ok)} .badge.construction{background:#b8741c} .badge.launching{background:var(--navy);border:1px solid var(--gold)}
+.badge.inline{position:static;display:inline-block}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:28px}
+
+.carousel{position:relative}
+.track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 30px;scrollbar-width:none;scroll-behavior:smooth}
+.track::-webkit-scrollbar{display:none}
+.track>*{flex:1 0 min(86%,410px);scroll-snap-align:start}
+.car-ctrl{display:flex;gap:.7rem}
+.car-btn{width:50px;height:50px;border:1px solid var(--navy);display:grid;place-items:center;transition:background .3s,color .3s}
+.car-btn:hover{background:var(--navy);color:#fff}
+.car-btn svg{width:20px;height:20px} [dir="rtl"] .car-btn svg{transform:scaleX(-1)}
+
+/* =========================================================
+   7. HOME: RANGE, STATS, LIFESTYLE, NEWS, CTA
+   ========================================================= */
+.range{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.range figure{margin:0}
+.range .zoom{display:block}
+.range figcaption{padding-top:1rem}
+.range h3{font-size:1.5rem;margin-bottom:.2em} .range p{color:var(--muted);font-size:.95rem;margin:0}
+@media (max-width:860px){.range{grid-template-columns:1fr}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat{padding:1rem;border-inline-start:1px solid rgba(255,255,255,.15)} .stat:first-child{border-inline-start:0}
+.stat .num{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.2rem);color:var(--gold-2);font-weight:600;line-height:1}
+.stat p{margin:.6rem 0 0;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+[dir="rtl"] .stat p{letter-spacing:0;font-size:.95rem}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-inline-start:0}}
+
+.life{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.life-tile{position:relative;color:#fff;overflow:hidden;min-height:520px;display:flex;align-items:flex-end;background:var(--navy)}
+.life-tile .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(11,29,48,.9))}
+.life-tile .txt{position:relative;padding:2rem;z-index:1;max-width:46ch}
+.life-tile .ico{color:var(--gold-2);margin-bottom:.8rem}
+.life-tile h3{font-size:1.8rem;margin-bottom:.3em} .life-tile p{font-size:.98rem;opacity:.92;margin:0}
+.life-tile .ph-label{inset-block-start:14px;inset-block-end:auto;inset-inline-end:14px}
+@media (max-width:860px){.life{grid-template-columns:1fr}.life-tile{min-height:420px}}
+
+.news-meta{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem}
+.cta{position:relative;color:#fff;text-align:center;overflow:hidden;isolation:isolate;background:var(--navy)}
+.cta .shade{position:absolute;inset:0;background:rgba(11,29,48,.78)}
+.cta .container{position:relative;padding-block:clamp(70px,10vw,130px)}
+.cta .btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+
+/* =========================================================
+   8. PROJECTS PAGE (filters)
+   ========================================================= */
+.filters{display:grid;gap:1.4rem;margin-bottom:2.6rem;padding:1.6rem;background:var(--sand)}
+.filter-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.filter-row>strong{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;min-width:100px;color:var(--muted)}
+[dir="rtl"] .filter-row>strong{letter-spacing:0;font-size:.85rem}
+.chip{padding:.5rem 1.1rem;border:1px solid var(--line);background:#fff;font-size:.88rem;border-radius:100px;transition:all .25s}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.result-count{color:var(--muted);margin-bottom:1.4rem;font-size:.92rem}
+.empty{text-align:center;padding:4rem 1rem;color:var(--muted);grid-column:1/-1}
+
+/* =========================================================
+   9. PROJECT DETAIL
+   ========================================================= */
+.facts{display:flex;flex-wrap:wrap;gap:1rem 2.6rem;margin-top:1.6rem}
+.facts div span{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+[dir="rtl"] .facts div span{letter-spacing:0;font-size:.82rem}
+.facts div strong{font-family:var(--serif);font-size:1.4rem;font-weight:600}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:clamp(320px,52vw,560px)}
+.gallery button{position:relative;overflow:hidden;display:block;width:100%;height:100%}
+.gallery button:first-child{grid-row:1/3}
+.gallery .ph,.gallery .pic{height:100%;aspect-ratio:auto!important}
+.gallery .more-tag{position:absolute;inset:auto 12px 12px auto;z-index:3;background:var(--navy);color:#fff;font-size:.75rem;padding:.4rem .8rem}
+.gal-note{font-size:.82rem;color:var(--muted);margin-top:.9rem}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}.gallery button:first-child{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}.gallery button{aspect-ratio:4/3}}
+.detail-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:clamp(30px,5vw,70px);align-items:start}
+@media (max-width:980px){.detail-grid{grid-template-columns:1fr}}
+.aside-card{position:sticky;top:90px;background:var(--sand);padding:2rem;border-top:3px solid var(--gold)}
+@media (max-width:980px){.aside-card{position:static}}
+.units{width:100%;border-collapse:collapse;margin-bottom:2rem}
+.units th,.units td{text-align:start;padding:1rem .8rem;border-bottom:1px solid var(--line)}
+.units th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+[dir="rtl"] .units th{letter-spacing:0;font-size:.85rem}
+.units td:first-child{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.amen{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.amen li{display:flex;flex-direction:column;align-items:center;gap:.7rem;padding:1.4rem .8rem;border:1px solid var(--line);text-align:center;font-size:.9rem;transition:border-color .3s,transform .3s var(--ease)}
+.amen li:hover{border-color:var(--gold);transform:translateY(-3px)}
+.amen .ico{color:var(--gold)}
+.pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.pay div{background:var(--navy);color:#fff;padding:1.6rem 1.2rem;text-align:center}
+.pay strong{display:block;font-family:var(--serif);font-size:2.2rem;color:var(--gold-2);line-height:1.1}
+.pay span{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+[dir="rtl"] .pay span{letter-spacing:0;font-size:.9rem}
+.pay-note{background:var(--sand);border-inline-start:3px solid var(--gold);padding:1.8rem}
+.pay-note h3{font-size:1.5rem;margin-bottom:.3em}
+.block{margin-bottom:clamp(40px,6vw,70px)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.pair{grid-template-columns:1fr}}
+.pair figure{margin:0} .pair figcaption{font-size:.82rem;color:var(--muted);padding-top:.5rem}
+.pair .btn-img{display:block;width:100%;cursor:zoom-in}
+.stack{display:grid;gap:16px}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}
+.tags li{padding:.5rem 1rem;background:var(--sand);border-inline-start:3px solid var(--gold);font-size:.9rem}
+.pn{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding-top:2rem;margin-top:3rem;flex-wrap:wrap}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(5,12,20,.95);display:none;grid-template-rows:auto minmax(0,1fr) auto;color:#fff}
+.lightbox.open{display:grid}
+.lb-top,.lb-bot{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.4rem;gap:1rem}
+.lb-stage{position:relative;display:grid;place-items:center;padding:0 4.5rem;min-height:0}
+#lbImg{display:grid;place-items:center;max-width:100%;max-height:100%;min-height:0;width:100%}
+#lbImg img{max-width:100%;max-height:calc(100vh - 150px);width:auto;height:auto;object-fit:contain;margin-inline:auto}
+#lbImg .ph{width:min(1100px,100%);aspect-ratio:16/10}
+.lb-btn{width:48px;height:48px;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;transition:background .3s,color .3s}
+.lb-btn:hover{background:#fff;color:var(--navy)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb-prev{inset-inline-start:.8rem}.lb-next{inset-inline-end:.8rem}
+[dir="rtl"] .lb-prev svg,[dir="rtl"] .lb-next svg{transform:scaleX(-1)}
+@media (max-width:600px){.lb-stage{padding:0 .6rem}.lb-prev,.lb-next{top:auto;bottom:-64px;transform:none}}
+
+/* =========================================================
+   10. ABOUT
+   ========================================================= */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.vm{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.vm div{background:#fff;padding:2.2rem;border-top:3px solid var(--gold);box-shadow:0 10px 30px rgba(11,29,48,.07)}
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:26px}
+.member h3{font-size:1.35rem;margin:1rem 0 .1em} .member p{color:var(--muted);font-size:.9rem;margin:0}
+
+/* =========================================================
+   11. FORMS
+   ========================================================= */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem}
+.form-grid .full{grid-column:1/-1}
+@media (max-width:640px){.form-grid{grid-template-columns:1fr}}
+.field label{display:block;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:.4rem}
+[dir="rtl"] .field label{letter-spacing:0;font-size:.9rem}
+.field label span{color:var(--err)}
+.field input,.field select,.field textarea{width:100%;padding:.85rem 1rem;border:1px solid rgba(11,29,48,.25);background:#fff;border-radius:2px;transition:border-color .25s,box-shadow .25s}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(185,151,91,.25)}
+.field [aria-invalid="true"]{border-color:var(--err)}
+.err{color:var(--err);font-size:.82rem;min-height:1.1em;margin:.3rem 0 0}
+.success{padding:2.4rem 1.6rem;text-align:center;border:1px solid var(--ok);background:#f0f8f3}
+.success svg{margin:0 auto 1rem;color:var(--ok)}
+.success h3{color:var(--ok)}
+.fine{font-size:.78rem;color:var(--muted);margin-top:.8rem}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,5vw,70px)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.office{padding:1.4rem 0;border-bottom:1px solid var(--line)} .office h3{font-size:1.4rem;margin-bottom:.3em}
+.office p{margin:0;color:var(--muted)}
+.map-frame{display:block;width:100%;height:clamp(300px,45vw,460px);border:0;background:var(--sand-2)}
+
+/* =========================================================
+   12. FOOTER & FLOATING WHATSAPP
+   ========================================================= */
+.footer{background:var(--navy);color:rgba(255,255,255,.82);padding-top:80px;font-size:.95rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:60px}
+@media (max-width:980px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
+.footer h4{color:#fff;font-size:1.2rem;margin-bottom:1rem}
+.footer li{margin-bottom:.55rem} .footer a:hover{color:var(--gold-2)}
+.foot-logo{width:130px;height:auto}
+.social{display:flex;gap:.7rem;margin-top:1.2rem}
+.social a{width:40px;height:40px;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;border-radius:50%;transition:background .3s,color .3s,border-color .3s}
+.social a:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.news-form{display:flex}
+.news-form input{flex:1;min-width:0;padding:.85rem 1rem;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;border-radius:2px 0 0 2px}
+[dir="rtl"] .news-form input{border-radius:0 2px 2px 0}
+.news-form .btn{border-radius:0 2px 2px 0;padding-inline:1.2rem}
+[dir="rtl"] .news-form .btn{border-radius:2px 0 0 2px}
+.news-form input::placeholder{color:rgba(255,255,255,.55)}
+.footer .err{color:#ff9d90}
+.form-note{min-height:1.4em;font-size:.85rem;margin-top:.5rem;color:var(--gold-2)}
+.legal{border-top:1px solid rgba(255,255,255,.14);padding-block:1.6rem;font-size:.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.legal ul{display:flex;gap:1.4rem;flex-wrap:wrap;margin:0}.legal li{margin:0}
+.disclaimer{font-size:.74rem;opacity:.6;padding-bottom:1.6rem;max-width:90ch}
+.wa-float{position:fixed;inset-block-end:22px;inset-inline-end:22px;z-index:90;width:58px;height:58px;border-radius:50%;background:#1fa855;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .3s var(--ease)}
+.wa-float:hover{transform:scale(1.1)}
+
+/* =========================================================
+   13. MOTION (page transitions, scroll reveal)
+   ========================================================= */
+#app{transition:opacity .4s var(--ease),transform .4s var(--ease);outline:none}
+#app.leaving{opacity:0;transform:translateY(10px)}
+#app.entering{opacity:0;transform:translateY(-6px);transition:none}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#app" id="skip">Skip to content</a>
+<header class="nav" id="nav"></header>
+<main id="app" tabindex="-1"></main>
+<footer class="footer" id="footer"></footer>
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.7-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200c0 1.300.9 2.500 1 2.700.1.2 1.800 2.800 4.400 3.900 1.600.7 2.300.7 3.100.6.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<!-- Lightbox (shared by project galleries and the portfolio gallery) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery" hidden>
+  <div class="lb-top"><span id="lbCount" aria-live="polite"></span><button class="lb-btn" id="lbClose" aria-label="Close gallery">✕</button></div>
+  <div class="lb-stage">
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div id="lbImg"></div>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="lb-bot"><span id="lbCap"></span></div>
+</div>
+
+<script>
+/* =========================================================
+   A. CONTENT DATA  — edit everything here
+   Images are referenced by KEY (e.g. 'villa_hero'). The keys and
+   their image data live in the IMAGES block at the very end of
+   this file. A project with no image key shows a labelled placeholder.
+   ========================================================= */
+const SITE = {
+  name: 'DH Developments', nameAr: 'دي إتش للتطوير العقاري', legal: 'DH Developments',
+  // TODO: replace the placeholders below with real contact details
+  phone: '+20 XXX XXX XXXX', whatsapp: '20XXXXXXXXXX', email: 'info@your-domain.com',
+  address: 'West Cairo, Egypt',
+  map: { lat: 30.0531308, lng: 30.9247821, label: 'The Villa compound, New Zayed', url: 'https://maps.app.goo.gl/hYfXbXBeXtvCjqyG7' },
+  social: { facebook: 'https://www.facebook.com/share/1DwH9rX6nB/' }   // add instagram / linkedin / youtube here when available
+};
+
+const LOCATIONS = {
+  newzayed:   { en: 'New Zayed',    ar: 'زايد الجديدة' },
+  newcairo:   { en: 'New Cairo',    ar: 'القاهرة الجديدة' },
+  northcoast: { en: 'North Coast',  ar: 'الساحل الشمالي' },
+  newcapital: { en: 'New Capital',  ar: 'العاصمة الجديدة' },
+  sokhna:     { en: 'Ain Sokhna',   ar: 'العين السخنة' }
+};
+const TYPES = {
+  apartments: { en: 'Apartments', ar: 'شقق' }, villas: { en: 'Villas', ar: 'فيلات' },
+  townhouses: { en: 'Townhouses', ar: 'تاون هاوس' }, chalets: { en: 'Chalets', ar: 'شاليهات' }
+};
+const STATUS = {
+  ready:        { en: 'Ready to move',      ar: 'جاهز للتسليم' },
+  construction: { en: 'Under construction', ar: 'قيد الإنشاء' },
+  launching:    { en: 'Launching soon',     ar: 'إطلاق قريبًا' }
+};
+/* Amenity labels + icon names (from The Villa brochure) */
+const AMENITIES = {
+  gates:      { en: 'Electronic Gates',            ar: 'بوابات إلكترونية',        icon: 'gate' },
+  security:   { en: '24/7 Security & Surveillance', ar: 'أمن ومراقبة ٢٤/٧',       icon: 'security' },
+  pool:       { en: 'Swimming Pool',                ar: 'حمام سباحة',             icon: 'pool' },
+  landscape:  { en: 'Landscaping & Greenery',       ar: 'مناظر طبيعية ومساحات خضراء', icon: 'park' },
+  fountains:  { en: 'Fountains & Waterfalls',       ar: 'نوافير وشلالات',         icon: 'fountain' },
+  bbq:        { en: 'BBQ Area',                     ar: 'منطقة شواء',             icon: 'bbq' },
+  kids:       { en: 'Children’s Playground',        ar: 'منطقة ألعاب للأطفال',     icon: 'kids' },
+  passage:    { en: 'Internal Passageway',          ar: 'ممر داخلي',              icon: 'passage' },
+  community:  { en: 'Community Center',             ar: 'مركز مجتمعي',            icon: 'clubhouse' },
+  commercial: { en: 'Commercial Area',              ar: 'منطقة تجارية',           icon: 'retail' }
+};
+
+/* ---- PROJECTS. Add/remove objects freely; the grid, filters & detail pages build from this. ----
+   cover/hero  = image keys (null -> labelled placeholder)
+   gallery     = [{img:'key'|null, cap:'caption', photo:true if it's a site photograph}]
+   payment     = null (shows "contact sales") or {down:'10%', years:8, delivery:'2028', note:'…'}  */
+const PROJECTS = [
+  { slug:'vera', name:'Vera', nameAr:'فيرا', loc:'newzayed', area:'New Zayed, West Cairo',
+    types:['villas'], status:'launching', featured:true, units:null, siteArea:null,
+    cover:'villa_sep1', hero:'villa_twin2',
+    tagline:'A new villa community in New Zayed, launching soon.',
+    overview:[ // TODO: replace with the Vera project copy
+      'Vera is the next villa community from DH Developments, located in New Zayed, West Cairo.',
+      'Unit types, sizes, the master plan and payment plans will be published at launch. Register your interest to be among the first to receive them.' ],
+    unitTypes:[], amenities:[], payment:null, access:[], neighbours:[], distance:'',
+    maps:[], masterPlan:[], plans:[],
+    galleryNote:'Illustrative villa renders in the style of The Villa; Vera’s own visuals will follow at launch.',
+    // TODO: replace these stand-in renders with Vera's own images (keys live in the IMAGES block)
+    gallery:[ { img:'villa_twin2',     cap:'Illustrative villa render – front elevation' }, { img:'villa_street1',  cap:'Illustrative render – community street' },
+              { img:'villa_large2',   cap:'Illustrative villa render – garden façade' },  { img:'villa_sep_pool', cap:'Illustrative render – villa pool garden' },
+              { img:'villa_twin_pool',cap:'Illustrative render – pool terrace' } ] },
+
+  { slug:'the-villa', name:'The Villa', nameAr:'ذا فيلا', loc:'newzayed', area:'New Zayed, West Cairo',
+    types:['villas'], status:'ready', featured:true, units:18, siteArea:10421,
+    cover:'villa_facade', hero:'villa_hero',
+    tagline:'A private residential community planned around a considered way of living.',
+    overview:[
+      'The Villa is a private residential community of 18 villas set across 10,421 m² in New Zayed, West Cairo. Contemporary architecture, landscaped spaces and water features frame a calm residential setting.',
+      'Three villa typologies – Large Villa, Twin Villa and Separate Villa – sit within a coordinated layout, behind electronic gates with round-the-clock security and surveillance.' ],
+    // Residences per typology are read from the master plan numbering (1–2, 3A–6B, 7–14).
+    unitTypes:[ { name:'Large Villa',    count:'2', ref:'Units 1–2',    size:null },
+                { name:'Twin Villa',     count:'8', ref:'Units 3A–6B',  size:null },
+                { name:'Separate Villa', count:'8', ref:'Units 7–14',   size:null } ],
+    amenities:['gates','security','pool','landscape','fountains','bbq','kids','passage','community','commercial'],
+    payment:null,
+    access:['Waslet Dahshour Road','Middle-Ring Road','26th of July Corridor','Wahat Road'],
+    neighbours:['SODIC','Allegria','Beverly Hills'], distance:'Approx. 1.4 km to Waslet Dahshour Road',
+    maps:[ { img:'map_context', cap:'West Cairo context' }, { img:'map_location', cap:'Project location' } ],
+    masterPlan:[ { img:'villa_masterplan', cap:'Master plan' }, { img:'villa_layout', cap:'Layout and residence types' } ],
+    plans:[ { img:'villa_plan_twin', cap:'Twin Villa – ground and first floor plans' }, { img:'villa_plan_sep', cap:'Separate Villa – roof floor plan and layout' } ],
+    galleryNote:'Renderings are illustrative design perspectives, not site photographs. Site photographs show conditions as captured.',
+    gallery:[
+      { img:'villa_aerial',   cap:'Aerial perspective of the community' },
+      { img:'villa_gate',     cap:'Community entrance gate' },
+      { img:'villa_street2',  cap:'Residential street at dusk' },
+      { img:'villa_pool',     cap:'Villa garden and swimming pool' },
+      { img:'villa_sign',     cap:'Central courtyard and entrance feature' },
+      { img:'villa_shared',   cap:'Shared passageway with water features' },
+      { img:'villa_facade',   cap:'Villa façades' },
+      { img:'villa_street1',  cap:'Community approach' },
+      { img:'villa_large1',   cap:'Large Villa – front elevation' },
+      { img:'villa_large2',   cap:'Large Villa – garden façade' },
+      { img:'villa_twin1',    cap:'Twin Villa – street view' },
+      { img:'villa_twin2',    cap:'Twin Villa – front elevation' },
+      { img:'villa_twin_pool',cap:'Twin Villa – pool terrace' },
+      { img:'villa_sep1',     cap:'Separate Villa – front elevation' },
+      { img:'villa_sep2',     cap:'Separate Villa – garden façade' },
+      { img:'villa_sep3',     cap:'Separate Villa – pool and pergola' },
+      { img:'villa_sep_pool', cap:'Separate Villa – pool garden' },
+      { img:'villa_garden',   cap:'Landscaped gardens and courtyard' },
+      { img:'villa_fountain', cap:'Fountains and waterfalls' },
+      { img:'villa_entrance', cap:'Entrance feature wall' },
+      { img:'site1', cap:'Site photograph – entrance gate', photo:true },
+      { img:'site2', cap:'Site photograph – internal street', photo:true },
+      { img:'site3', cap:'Site photograph – internal road', photo:true },
+      { img:'site4', cap:'Site photograph – villa blocks', photo:true },
+      { img:'site5', cap:'Site photograph – villa façades', photo:true },
+      { img:'site6', cap:'Site photograph – street view', photo:true },
+      { img:'site7', cap:'Site photograph – façade detail', photo:true },
+      { img:'site8', cap:'Site photograph – main façade', photo:true },
+      { img:'site9', cap:'Site photograph – exterior view', photo:true } ] }
+];
+
+/* Home page: "a range of residential work" strip */
+const RANGE = [ { k:'rng1', img:'villa_large1' }, { k:'rng2', img:'villa_twin2' }, { k:'rng3', img:'villa_aerial' } ];
+
+/* Home page: latest news (no dates supplied – add `date:'12 Nov 2026'` to show one) */
+const NEWS = [
+  { cat:'Project update', title:'The Villa is ready to move', ex:'Eighteen villas in a private gated community in New Zayed, West Cairo.', img:'villa_gate', href:'#/project/the-villa' },
+  { cat:'Launch', title:'Vera is launching soon in New Zayed', ex:'Register your interest to receive the launch details first.', img:'villa_sep1', href:'#/project/vera' },
+  { cat:'Follow us', title:'Project photos and updates on Facebook', ex:'Follow DH Developments for progress photos and announcements.', img:'villa_shared', href:SITE.social.facebook, external:true }
+];
+
+/* Home page counters – these come from The Villa brochure. Replace with company-wide figures when you have them. */
+const STATS = [ { n:2, k:'stat_proj' }, { n:18, k:'stat_res' }, { n:10421, k:'stat_area' }, { n:3, k:'stat_type' } ];
+
+/* About page: leadership placeholders (no names supplied) */
+const TEAM = [ { name:'[Full name]', role:'[Position]' }, { name:'[Full name]', role:'[Position]' }, { name:'[Full name]', role:'[Position]' } ];
+
+/* =========================================================
+   B. UI STRINGS (English complete; Arabic for nav & key headings, falls back to EN)
+   ========================================================= */
+const STR = {
+ en:{
+  skip:'Skip to content', nav_home:'Home', nav_projects:'Projects', nav_about:'About', nav_contact:'Contact', cta_register:'Register Interest', lang_btn:'عربي',
+  hero_eyebrow:'DH Developments · West Cairo', hero_title:'Individual Homes & Residential Compounds',
+  hero_tag:'Efficient delivery, refined execution and thoughtful design – from standalone homes to planned communities in West Cairo.',
+  hero_btn1:'Explore Projects', hero_btn2:'Register Interest',
+  feat_eyebrow:'Featured', feat_title:'Signature Projects', view_all:'View all projects',
+  rng_eyebrow:'Our Portfolio', rng_title:'A range of residential work',
+  rng1:'Individual Homes', rng1d:'Standalone villas and homes, built to individual briefs.',
+  rng2:'Residential Buildings', rng2d:'Multi-unit residential buildings, delivered with efficient execution.',
+  rng3:'Planned Communities', rng3d:'Private compounds with master plans, layouts and shared amenities.',
+  why_eyebrow:'Why DH Developments', why_title:'Efficient delivery. Refined execution. Thoughtful design.',
+  stat_proj:'Signature projects', stat_res:'Villas at The Villa', stat_area:'m² site area at The Villa', stat_type:'Villa typologies',
+  life_eyebrow:'Lifestyle', life_title:'Everyday living, thoughtfully planned',
+  l1:'Parks & Green Living', l1d:'Landscaping and greenery, fountains and waterfalls, a children’s playground and internal passageways.',
+  l2:'Club & Gated Community Facilities', l2d:'Electronic gates, 24/7 security and surveillance, a community center and a swimming pool.',
+  news_eyebrow:'Journal', news_title:'Latest News', read_more:'Read more',
+  cta_title:'Your next chapter begins here', cta_text:'Speak with our team and discover a home designed around the way you want to live.',
+  cta_btn1:'Book a Private Viewing', cta_btn2:'Browse Projects',
+  proj_eyebrow:'Our Portfolio', proj_title:'Our Projects', proj_intro:'Residential communities in New Zayed, West Cairo.',
+  f_location:'Location', f_type:'Type', f_status:'Status', all:'All', results:'projects found', view_project:'View project',
+  no_results:'No projects match your filters. Try a different combination.',
+  det_overview:'Overview', det_units:'Unit Types & Sizes', det_amen:'Amenities', det_master:'Master Plan', det_plans:'Floor Plans', det_pay:'Payment Plan', det_loc:'Location & Access',
+  th_type:'Unit type', th_count:'Residences', th_ref:'Plot reference', th_size:'Built-up area', on_request:'On request',
+  units_soon:'Unit types and sizes will be announced at launch.',
+  pay_title:'Flexible payment plans', pay_text:'Down payment and instalment options are shared by our sales team. Contact us for the current plan.', pay_btn:'Contact sales',
+  pay_down:'Down payment', pay_years:'Years of instalments', pay_delivery:'Delivery',
+  access_title:'Easy access via', near_title:'Neighbouring communities',
+  gallery_view:'View all photos', reg_title:'Register your interest', reg_intro:'Leave your details and an advisor will call you within one working day.',
+  prev:'Previous project', next:'Next project', f_units:'Residences', land:'Site area',
+  about_eyebrow:'About Us', about_title:'About DH Developments', about_intro:'A West Cairo developer with a residential focus.',
+  story_title:'Our Story', story_h:'Individual homes and residential compounds',
+  story_1:'DH Developments undertakes individual residential projects and residential compounds, bringing together efficient delivery, refined execution and thoughtful design ideas.',
+  story_2:'Our portfolio spans standalone homes, residential buildings and planned communities, with architectural concepts, layouts and master plans developed for each. Our current focus is New Zayed, where The Villa and Vera are located.',
+  appr_title:'Our Approach',
+  ap1:'Efficient delivery', ap1d:'Projects planned and managed to move from concept to handover efficiently.',
+  ap2:'Refined execution', ap2d:'Careful attention to façades, finishes and the detail of every home.',
+  ap3:'Thoughtful design', ap3d:'Architectural concepts, layouts and master plans shaped around how people live.',
+  team_title:'Leadership Team',
+  contact_eyebrow:'Contact', contact_title:'Get in Touch', contact_intro:'Speak with our team about The Villa, Vera or your next home.',
+  f_name:'Full name', f_phone:'Phone', f_email:'Email', f_interest:'I’m interested in', f_message:'Message', f_unit:'Unit type of interest', send:'Send Message', submit:'Submit',
+  opt_choose:'Choose…', opt_buy:'Buying a home', opt_invest:'Investing', opt_visit:'Booking a viewing', opt_other:'Something else', opt_unsure:'Not sure yet',
+  v_required:'This field is required.', v_email:'Please enter a valid email address.', v_phone:'Please enter a valid phone number.',
+  ok_title:'Thank you!', ok_text:'Your request was received. A DH Developments advisor will contact you shortly.', ok_news:'Thanks! You’re subscribed.',
+  map_open:'Open in Google Maps', offices:'Our office', hq:'Head Office', wa_btn:'Chat on WhatsApp', wa_msg:'Hello, I would like to know more about DH Developments projects.',
+  foot_about:'Individual homes and residential compounds in West Cairo.', foot_explore:'Explore', foot_projects:'Projects', foot_news:'Newsletter', foot_news_t:'Receive launch alerts and project updates.',
+  foot_email:'Email address', foot_join:'Join', privacy:'Privacy Policy', terms:'Terms & Conditions', cookies:'Cookies',
+  disclaimer:'Images are illustrative design perspectives unless marked as site photographs. Information, specifications and payment terms are indicative, subject to change, and do not constitute an offer.',
+  nf_title:'Page not found', nf_text:'The page you’re looking for doesn’t exist or has moved.', back_home:'Back to Home'
+ },
+ ar:{
+  skip:'انتقل إلى المحتوى', nav_home:'الرئيسية', nav_projects:'المشروعات', nav_about:'من نحن', nav_contact:'تواصل معنا', cta_register:'سجّل اهتمامك', lang_btn:'English',
+  hero_eyebrow:'دي إتش للتطوير العقاري · غرب القاهرة', hero_title:'منازل فردية ومجمعات سكنية',
+  hero_tag:'تنفيذ كفء، وتشطيب راقٍ، وأفكار تصميم مدروسة — من المنازل المستقلة إلى المجتمعات المخططة في غرب القاهرة.',
+  hero_btn1:'استكشف المشروعات', hero_btn2:'سجّل اهتمامك',
+  feat_eyebrow:'مميز', feat_title:'مشروعاتنا المميزة', view_all:'عرض كل المشروعات',
+  rng_eyebrow:'أعمالنا', rng_title:'مجموعة متنوعة من الأعمال السكنية',
+  rng1:'منازل فردية', rng2:'مبانٍ سكنية', rng3:'مجتمعات مخططة',
+  why_eyebrow:'لماذا دي إتش', why_title:'تنفيذ كفء. تشطيب راقٍ. تصميم مدروس.',
+  stat_proj:'مشروعات مميزة', stat_res:'فيلا في ذا فيلا', stat_area:'م² مساحة موقع ذا فيلا', stat_type:'أنواع الفيلات',
+  life_eyebrow:'أسلوب الحياة', life_title:'حياة يومية مخططة بعناية',
+  l1:'الحدائق والحياة الخضراء', l1d:'مساحات خضراء ونوافير وشلالات ومنطقة ألعاب للأطفال وممرات داخلية.',
+  l2:'النادي ومرافق المجتمع المغلق', l2d:'بوابات إلكترونية وأمن ومراقبة على مدار الساعة ومركز مجتمعي وحمام سباحة.',
+  news_eyebrow:'المدونة', news_title:'آخر الأخبار',
+  cta_title:'فصلك القادم يبدأ هنا', cta_btn1:'احجز معاينة خاصة', cta_btn2:'تصفح المشروعات',
+  proj_eyebrow:'محفظتنا', proj_title:'مشروعاتنا', f_location:'الموقع', f_type:'النوع', f_status:'الحالة', all:'الكل',
+  view_project:'عرض المشروع',
+  det_overview:'نظرة عامة', det_units:'أنواع الوحدات والمساحات', det_amen:'الخدمات والمرافق', det_master:'المخطط العام', det_plans:'المساقط الأفقية', det_pay:'خطة السداد', det_loc:'الموقع وسهولة الوصول',
+  pay_down:'المقدم', pay_years:'سنوات التقسيط', pay_delivery:'موعد التسليم', reg_title:'سجّل اهتمامك',
+  f_units:'عدد الوحدات', land:'مساحة الموقع',
+  about_eyebrow:'من نحن', about_title:'عن دي إتش للتطوير العقاري', story_title:'قصتنا', appr_title:'نهجنا', team_title:'فريق القيادة',
+  contact_eyebrow:'تواصل', contact_title:'تواصل معنا', send:'إرسال الرسالة', submit:'إرسال', f_name:'الاسم بالكامل', f_phone:'رقم الهاتف', f_email:'البريد الإلكتروني',
+  f_message:'رسالتك', f_interest:'اهتمامي', wa_btn:'تواصل عبر واتساب', offices:'مكتبنا',
+  foot_explore:'استكشف', foot_news:'النشرة البريدية', foot_join:'اشترك', privacy:'سياسة الخصوصية', terms:'الشروط والأحكام',
+  ok_title:'شكرًا لك!', nf_title:'الصفحة غير موجودة', back_home:'العودة للرئيسية'
+ }
+};
+
+/* =========================================================
+   C. HELPERS
+   ========================================================= */
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lang = 'en';
+try { lang = localStorage.getItem('lang') || 'en'; } catch (e) {}
+const t = k => (STR[lang] && STR[lang][k]) || STR.en[k] || k;
+const L = o => o[lang] || o.en;
+const pName = p => lang === 'ar' && p.nameAr ? p.nameAr : p.name;
+const brandName = () => lang === 'ar' ? SITE.nameAr : SITE.name.toUpperCase();
+const typesText = p => p.types.map(k => L(TYPES[k])).join(' · ');
+const toneOf = i => (i % 6) + 1;
+const imgSrc = k => (k && window.IMG && window.IMG[k]) || '';
+
+/* Labelled placeholder box (used wherever an image is still missing) */
+function ph(label, w, h, desc, o = {}) {
+  const cls = o.fill ? 'ph ph-fill' : 'ph';
+  const style = o.fill ? '' : `aspect-ratio:${w}/${h};`;
+  return `<div class="${cls} tone-${o.tone || 1}" role="img" aria-label="Placeholder ${label}, ${w} by ${h}: ${esc(desc)}" style="${style}"><span class="ph-label"><b>${label}</b><i>${w}×${h}</i><em>${esc(desc)}</em></span></div>`;
+}
+/* Picture: real image if the key exists in IMG, otherwise the placeholder */
+function pic(key, w, h, desc, o = {}) {
+  const src = imgSrc(key);
+  if (!src) return ph(o.label || 'IMAGE', w, h, desc, o);
+  const cls = o.fill ? 'pic pic-fill' : 'pic';
+  /* natural:true = never crop (plans, maps): use the image's own proportions and object-fit:contain */
+  const dim = o.natural && window.IMGDIM && window.IMGDIM[key];
+  const style = (o.fill ? '' : `aspect-ratio:${dim ? dim[0] + '/' + dim[1] : w + '/' + h};`) + (o.natural ? 'object-fit:contain;' : '') + (o.pos ? `object-position:${o.pos};` : '');
+  return `<img class="${cls}" src="${src}" alt="${esc(desc)}" loading="${o.eager ? 'eager' : 'lazy'}" decoding="async" style="${style}">`;
+}
+
+/* Inline SVG icons (stroke style) */
+const ICONS = {
+  pool:'<path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5S16 18 18 18s2-1.5 4-1.5M2 13c2 0 2-1.5 4-1.5S8 13 10 13s2-1.5 4-1.5S16 13 18 13s2-1.5 4-1.5M8 10V5a2 2 0 0 1 4 0M13 10V5a2 2 0 0 1 4 0M8 7h5"/>',
+  park:'<path d="M12 3a5 5 0 0 0-4 8 4 4 0 0 0 4 5 4 4 0 0 0 4-5 5 5 0 0 0-4-8zM12 16v5"/>',
+  kids:'<circle cx="12" cy="5" r="2"/><path d="M8 21l2-8h4l2 8M6 10l6 3 6-3"/>',
+  retail:'<path d="M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0"/>',
+  security:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/>',
+  clubhouse:'<path d="M3 20h18M5 20V10l7-6 7 6v10M10 20v-5h4v5"/>',
+  gate:'<path d="M4 21V6M20 21V6M3 6h18M8 10v11M12 10v11M16 10v11M4 10h16"/>',
+  fountain:'<path d="M12 3c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8zM5 21c2-1.5 4-1.5 7 0s5 1.5 7 0"/>',
+  bbq:'<path d="M4 10h16a8 8 0 0 1-16 0zM8 18l-2 3M16 18l2 3M9 6c0-2 2-2 2-4M14 6c0-2 2-2 2-4"/>',
+  passage:'<path d="M5 21L10 3M19 21L14 3M12 6v2M12 11v2M12 16v2"/>',
+  check:'<circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/>'
+};
+const icon = (n, s = 28) => `<svg class="ico" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONS[n] || ''}</svg>`;
+const arrow = '<span class="arrow" aria-hidden="true">→</span>';
+
+/* =========================================================
+   D. SHELL: NAV + FOOTER
+   ========================================================= */
+const navEl = $('#nav'), footEl = $('#footer'), app = $('#app');
+
+function renderNav() {
+  navEl.innerHTML = `
+  <div class="container nav-inner">
+    <a class="brand" href="#/home" aria-label="${SITE.name} – ${t('nav_home')}">
+      <img src="${imgSrc('logo_mark')}" alt="${SITE.name} logo" width="58" height="42">
+      <span class="brand-name">${brandName()}</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a class="link" href="#/home" data-r="home">${t('nav_home')}</a>
+      <a class="link" href="#/projects" data-r="projects">${t('nav_projects')}</a>
+      <a class="link" href="#/about" data-r="about">${t('nav_about')}</a>
+      <a class="link" href="#/contact" data-r="contact">${t('nav_contact')}</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="lang-btn" id="langBtn" type="button" lang="${lang === 'ar' ? 'en' : 'ar'}" aria-label="${lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}">${t('lang_btn')}</button>
+      <a class="btn btn-gold" href="#/contact">${t('cta_register')}</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><span></span></button>
+    </div>
+  </div>`;
+  $('#langBtn').addEventListener('click', toggleLang);
+  $('#burger').addEventListener('click', () => setMenu(!$('#navLinks').classList.contains('open')));
+}
+function setMenu(open) {
+  const links = $('#navLinks'), b = $('#burger'); if (!links) return;
+  links.classList.toggle('open', open); b.setAttribute('aria-expanded', open); navEl.classList.toggle('menu-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+const socialIcons = {
+  facebook:'<path fill="currentColor" stroke="none" d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/>',
+  instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>',
+  linkedin:'<path fill="currentColor" stroke="none" d="M5 9h3v10H5zM6.5 4.5a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4zM11 9h3v1.5c.6-1 1.7-1.7 3.2-1.7 3 0 3.8 2 3.8 4.7V19h-3v-4.8c0-1.3-.3-2.3-1.6-2.3S14 13 14 14.2V19h-3z"/>',
+  youtube:'<rect x="2" y="5" width="20" height="14" rx="4"/><path fill="currentColor" d="M10 9l5 3-5 3z"/>'
+};
+function renderFooter() {
+  const soc = Object.keys(SITE.social).filter(k => socialIcons[k]).map(k => `<a href="${SITE.social[k]}" target="_blank" rel="noopener" aria-label="${k[0].toUpperCase() + k.slice(1)}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">${socialIcons[k]}</svg></a>`).join('');
+  footEl.innerHTML = `
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#/home" aria-label="${SITE.name}"><img class="foot-logo" src="${imgSrc('logo_light')}" alt="${SITE.name} logo" width="130" height="130"></a>
+        <p style="margin-top:1.2rem;max-width:34ch">${t('foot_about')}</p>
+        <div class="social">${soc}</div>
+      </div>
+      <div><h4>${t('foot_explore')}</h4><ul>
+        <li><a href="#/home">${t('nav_home')}</a></li><li><a href="#/projects">${t('nav_projects')}</a></li>
+        <li><a href="#/about">${t('nav_about')}</a></li><li><a href="#/contact">${t('nav_contact')}</a></li></ul></div>
+      <div><h4>${t('foot_projects')}</h4><ul>${PROJECTS.map(p => `<li><a href="#/project/${p.slug}">${pName(p)}</a></li>`).join('')}</ul></div>
+      <div>
+        <h4>${t('foot_news')}</h4><p>${t('foot_news_t')}</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <label class="sr-only" for="nl-email">${t('foot_email')}</label>
+          <input id="nl-email" type="email" name="email" placeholder="${t('foot_email')}" autocomplete="email" data-v="required email" aria-describedby="nl-err">
+          <button class="btn btn-gold" type="submit">${t('foot_join')}</button>
+        </form>
+        <p class="err" id="nl-err" aria-live="polite"></p><p class="form-note" id="nl-note" role="status"></p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© ${new Date().getFullYear()} ${SITE.legal}. All rights reserved.</span>
+      <ul><li><a href="#/contact">${t('privacy')}</a></li><li><a href="#/contact">${t('terms')}</a></li><li><a href="#/contact">${t('cookies')}</a></li></ul>
+    </div>
+    <p class="disclaimer">${t('disclaimer')}</p>
+  </div>`;
+  bindForm($('#newsForm'), { inline: true, errEl: $('#nl-err'), noteEl: $('#nl-note'), msg: t('ok_news') });
+}
+
+/* =========================================================
+   E. FORMS: validation + success states
+   ========================================================= */
+function field(o) {
+  const { id, label, type = 'text', v = 'required', ac = '', full = false } = o;
+  const req = v.includes('required');
+  return `<div class="field${full ? ' full' : ''}">
+    <label for="${id}">${label}${req ? ' <span aria-hidden="true">*</span>' : ''}</label>
+    <input id="${id}" name="${id}" type="${type}" autocomplete="${ac}" data-v="${v}" ${req ? 'aria-required="true"' : ''} aria-describedby="${id}-err">
+    <p class="err" id="${id}-err" aria-live="polite"></p></div>`;
+}
+function selectField(id, label, opts, full = false, req = true) {
+  return `<div class="field${full ? ' full' : ''}">
+    <label for="${id}">${label}${req ? ' <span aria-hidden="true">*</span>' : ''}</label>
+    <select id="${id}" name="${id}" ${req ? 'data-v="required" aria-required="true"' : ''} aria-describedby="${id}-err">
+      <option value="">${t('opt_choose')}</option>${opts.map(o => `<option>${o}</option>`).join('')}</select>
+    <p class="err" id="${id}-err" aria-live="polite"></p></div>`;
+}
+function validateEl(el) {
+  const rules = (el.dataset.v || '').split(' ').filter(Boolean), val = el.value.trim();
+  if (rules.includes('required') && !val) return t('v_required');
+  if (val && rules.includes('email') && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) return t('v_email');
+  if (val && rules.includes('phone') && !/^\+?[0-9\s\-()]{8,16}$/.test(val)) return t('v_phone');
+  return '';
+}
+function setErr(el, msg, errEl) {
+  errEl = errEl || $('#' + el.id + '-err');
+  if (errEl) errEl.textContent = msg;
+  el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+}
+function bindForm(form, o = {}) {
+  if (!form) return;
+  const els = $$('[data-v]', form);
+  els.forEach(el => {
+    el.addEventListener('blur', () => { if (el.value || el.getAttribute('aria-invalid') === 'true') setErr(el, validateEl(el), o.errEl); });
+    el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') setErr(el, validateEl(el), o.errEl); });
+  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let first = null;
+    els.forEach(el => { const m = validateEl(el); setErr(el, m, o.errEl); if (m && !first) first = el; });
+    if (first) { first.focus(); return; }
+    /* TODO: send the form data to your backend / email service here (fetch POST) */
+    if (o.inline) { form.reset(); o.noteEl.textContent = o.msg; return; }
+    const box = document.createElement('div');
+    box.className = 'success'; box.setAttribute('role', 'status'); box.tabIndex = -1;
+    box.innerHTML = `${icon('check', 48)}<h3>${t('ok_title')}</h3><p>${o.msg || t('ok_text')}</p>`;
+    form.replaceWith(box); box.focus();
+  });
+}
+
+/* =========================================================
+   F. VIEWS
+   ========================================================= */
+function card(p) {
+  const i = PROJECTS.indexOf(p);
+  return `<article class="card reveal">
+    <a class="card-link" href="#/project/${p.slug}" aria-label="${pName(p)} – ${t('view_project')}">
+      <div class="card-media zoom">${pic(p.cover, 800, 600, `${p.name} – exterior render`, { label: 'PROJECT IMAGE', tone: toneOf(i) })}
+        <span class="badge ${p.status}">${L(STATUS[p.status])}</span></div>
+      <div class="card-body">
+        <p class="eyebrow" style="margin-bottom:.4rem">${L(LOCATIONS[p.loc])} · ${typesText(p)}</p>
+        <h3>${pName(p)}</h3><p>${p.tagline}</p>
+        <span class="more">${t('view_project')} ${arrow}</span>
+      </div></a></article>`;
+}
+function pageHero(eyebrow, title, intro, label, tone = 1, crumbs = '', imgKey = null) {
+  return `<section class="page-hero" aria-labelledby="ph-h">
+    ${pic(imgKey, 1920, 600, label, { fill: true, tone, label: 'PAGE BANNER', eager: true })}<div class="shade"></div>
+    <div class="container">${crumbs}<p class="eyebrow light">${eyebrow}</p><h1 id="ph-h">${title}</h1>${intro ? `<p class="lead">${intro}</p>` : ''}</div></section>`;
+}
+const uniq = a => [...new Set(a)];
+const optList = (map, all) => `<option value="all">${all}</option>` + Object.keys(map).map(k => `<option value="${k}">${L(map[k])}</option>`).join('');
+
+/* ---------- HOME ---------- */
+function viewHome() {
+  const feat = PROJECTS.filter(p => p.featured);
+  const lifeTiles = [['park', 'l1', 'l1d', 'villa_fountain', 'fountains, landscaping and greenery between the villas'], ['security', 'l2', 'l2d', 'villa_gate', 'electronic entrance gate and community facilities']];
+  return `
+  <section class="hero" aria-labelledby="hero-h">
+    ${pic('villa_hero', 1920, 1080, 'The Villa – contemporary villa façade at dusk with landscaped garden', { fill: true, tone: 1, label: 'HERO IMAGE', eager: true })}
+    <div class="hero-shade"></div>
+    <div class="container hero-inner">
+      <p class="eyebrow light reveal">${t('hero_eyebrow')}</p>
+      <h1 id="hero-h" class="reveal">${t('hero_title')}</h1>
+      <p class="lead reveal">${t('hero_tag')}</p>
+      <div class="hero-cta reveal"><a class="btn btn-gold" href="#/projects">${t('hero_btn1')} ${arrow}</a><a class="btn btn-ghost" href="#/contact">${t('hero_btn2')}</a></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="feat-h">
+    <div class="container">
+      <div class="sec-head row reveal">
+        <div><p class="eyebrow">${t('feat_eyebrow')}</p><h2 id="feat-h" style="margin:0">${t('feat_title')}</h2></div>
+        <div class="car-ctrl" id="carCtrl" hidden>
+          <button class="car-btn" id="carPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="car-btn" id="carNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="${t('feat_title')}">
+        <div class="track" id="track" tabindex="0">${feat.map(card).join('')}</div>
+      </div>
+      <p class="reveal" style="margin-top:1rem"><a class="btn btn-outline" href="#/projects">${t('view_all')} ${arrow}</a></p>
+    </div>
+  </section>
+
+  <section class="section bg-sand" aria-labelledby="rng-h">
+    <div class="container">
+      <div class="sec-head center reveal"><p class="eyebrow">${t('rng_eyebrow')}</p><h2 id="rng-h">${t('rng_title')}</h2></div>
+      <div class="range">${RANGE.map((r, i) => `<figure class="reveal" style="transition-delay:${i * 90}ms"><a class="zoom" href="#/about" aria-label="${t(r.k)}">${pic(r.img, 800, 600, t(r.k), { label: 'PORTFOLIO IMAGE', tone: toneOf(i + 2) })}</a>
+        <figcaption><h3>${t(r.k)}</h3><p>${t(r.k + 'd')}</p></figcaption></figure>`).join('')}</div>
+    </div>
+  </section>
+
+  <section class="section bg-navy" aria-labelledby="why-h">
+    <div class="container">
+      <div class="sec-head center reveal"><p class="eyebrow light">${t('why_eyebrow')}</p><h2 id="why-h">${t('why_title')}</h2></div>
+      <div class="stats">${STATS.map((s, i) => `<div class="stat reveal" style="transition-delay:${i * 90}ms"><div class="num" data-count="${s.n}" data-suffix="">0</div><p>${t(s.k)}</p></div>`).join('')}</div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="life-h">
+    <div class="container">
+      <div class="sec-head center reveal"><p class="eyebrow">${t('life_eyebrow')}</p><h2 id="life-h">${t('life_title')}</h2></div>
+      <div class="life">${lifeTiles.map((x, i) => `<div class="life-tile reveal zoom" style="transition-delay:${i * 90}ms">
+        ${pic(x[3], 900, 1000, x[4], { fill: true, tone: i ? 1 : 2, label: 'LIFESTYLE IMAGE' })}<div class="shade"></div>
+        <div class="txt">${icon(x[0], 34)}<h3>${t(x[1])}</h3><p>${t(x[2])}</p></div></div>`).join('')}</div>
+    </div>
+  </section>
+
+  <section class="section bg-sand" aria-labelledby="news-h">
+    <div class="container">
+      <div class="sec-head reveal"><p class="eyebrow">${t('news_eyebrow')}</p><h2 id="news-h">${t('news_title')}</h2></div>
+      <div class="grid-3">${NEWS.map((n, i) => `<article class="card reveal" style="transition-delay:${i * 90}ms">
+        <a class="card-link" href="${n.href}" ${n.external ? 'target="_blank" rel="noopener"' : ''} aria-label="${esc(n.title)}"><div class="card-media zoom">${pic(n.img, 800, 500, n.title, { label: 'NEWS IMAGE', tone: n.tone || 1 })}</div>
+        <div class="card-body"><p class="news-meta">${n.date ? n.date + ' · ' : ''}${n.cat}</p><h3>${n.title}</h3><p>${n.ex}</p><span class="more">${t('read_more')} ${arrow}</span></div></a></article>`).join('')}</div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-h">
+    ${pic('villa_aerial', 1920, 700, 'Aerial view of The Villa community', { fill: true, tone: 5, label: 'CTA BACKGROUND' })}<div class="shade"></div>
+    <div class="container reveal"><h2 id="cta-h">${t('cta_title')}</h2><p class="lead" style="margin-inline:auto">${t('cta_text')}</p>
+      <div class="btns"><a class="btn btn-gold" href="#/contact">${t('cta_btn1')}</a><a class="btn btn-ghost" href="#/projects">${t('cta_btn2')}</a></div></div>
+  </section>`;
+}
+function bindHome() {
+  const track = $('#track'), ctrl = $('#carCtrl');
+  const step = () => (track.firstElementChild ? track.firstElementChild.getBoundingClientRect().width + 24 : 400);
+  const dir = () => (document.documentElement.dir === 'rtl' ? -1 : 1);
+  $('#carPrev').addEventListener('click', () => track.scrollBy({ left: -step() * dir(), behavior: 'smooth' }));
+  $('#carNext').addEventListener('click', () => track.scrollBy({ left: step() * dir(), behavior: 'smooth' }));
+  /* Arrows only appear when the featured cards overflow (i.e. more projects than fit on screen) */
+  const sync = () => { if (track.isConnected) ctrl.hidden = !(track.scrollWidth > track.clientWidth + 8); };
+  sync(); window.addEventListener('resize', sync);
+}
+
+/* ---------- PROJECTS ---------- */
+const filters = { loc: 'all', type: 'all', status: 'all' };
+/* Chips are built from the projects that exist, so empty filters never show */
+function chipGroup(group, map, keys) {
+  const items = [['all', t('all')]].concat(keys.map(k => [k, L(map[k])]));
+  return items.map(([k, label]) => `<button class="chip" type="button" data-g="${group}" data-v="${k}" aria-pressed="${filters[group] === k}">${label}</button>`).join('');
+}
+const matches = p => (filters.loc === 'all' || p.loc === filters.loc) && (filters.type === 'all' || p.types.includes(filters.type)) && (filters.status === 'all' || p.status === filters.status);
+function viewProjects(ctx) {
+  const q = ctx.query;
+  filters.loc = LOCATIONS[q.loc] ? q.loc : 'all';
+  filters.type = TYPES[q.type] ? q.type : 'all';
+  filters.status = STATUS[q.status] ? q.status : 'all';
+  const locs = uniq(PROJECTS.map(p => p.loc)), types = uniq(PROJECTS.flatMap(p => p.types)), sts = uniq(PROJECTS.map(p => p.status));
+  return pageHero(t('proj_eyebrow'), t('proj_title'), t('proj_intro'), 'The Villa – residential street at dusk', 2, '', 'villa_street2') + `
+  <section class="section"><div class="container">
+    <div class="filters" role="group" aria-label="Filters">
+      <div class="filter-row"><strong>${t('f_location')}</strong>${chipGroup('loc', LOCATIONS, locs)}</div>
+      <div class="filter-row"><strong>${t('f_type')}</strong>${chipGroup('type', TYPES, types)}</div>
+      <div class="filter-row"><strong>${t('f_status')}</strong>${chipGroup('status', STATUS, sts)}</div>
+    </div>
+    <p class="result-count" id="count" role="status" aria-live="polite"></p>
+    <div class="grid-3" id="grid"></div>
+  </div></section>`;
+}
+function bindProjects() {
+  const grid = $('#grid'), count = $('#count');
+  function paint() {
+    const list = PROJECTS.filter(matches);
+    count.textContent = `${list.length} ${t('results')}`;
+    grid.innerHTML = list.length ? list.map(card).join('') : `<p class="empty">${t('no_results')}</p>`;
+    $$('.card', grid).forEach(c => requestAnimationFrame(() => c.classList.add('in')));
+    $$('.chip').forEach(c => c.setAttribute('aria-pressed', filters[c.dataset.g] === c.dataset.v));
+  }
+  $$('.chip').forEach(c => c.addEventListener('click', () => { filters[c.dataset.g] = c.dataset.v; paint(); }));
+  paint();
+}
+
+/* ---------- PROJECT DETAIL ---------- */
+let curProject = null;
+function viewProject(ctx) {
+  const idx = PROJECTS.findIndex(p => p.slug === ctx.param);
+  if (idx < 0) return viewNotFound();
+  const p = PROJECTS[idx], prev = PROJECTS[(idx - 1 + PROJECTS.length) % PROJECTS.length], next = PROJECTS[(idx + 1) % PROJECTS.length];
+  curProject = p; const tn = toneOf(idx);
+  const crumbs = `<p class="crumbs"><a href="#/home">${t('nav_home')}</a> / <a href="#/projects">${t('nav_projects')}</a> / ${pName(p)}</p>`;
+  const facts = `<div class="facts">
+    <div><span>${t('f_location')}</span><strong>${L(LOCATIONS[p.loc])}</strong></div>
+    <div><span>${t('f_type')}</span><strong>${typesText(p)}</strong></div>
+    ${p.units ? `<div><span>${t('f_units')}</span><strong>${p.units}</strong></div>` : ''}
+    ${p.siteArea ? `<div><span>${t('land')}</span><strong>${p.siteArea.toLocaleString('en-US')} m²</strong></div>` : ''}</div>`;
+  const hero = `<section class="page-hero" aria-labelledby="ph-h">
+    ${pic(p.hero, 1920, 800, `${p.name} – signature exterior render`, { fill: true, tone: tn, label: 'PROJECT HERO IMAGE', eager: true })}<div class="shade"></div>
+    <div class="container">${crumbs}<span class="badge inline ${p.status}" style="margin-bottom:1rem">${L(STATUS[p.status])}</span>
+    <h1 id="ph-h">${pName(p)}</h1><p class="lead">${p.tagline}</p>${facts}</div></section>`;
+  const g = p.gallery;
+  const gallery = `<div class="block reveal"><div class="gallery" role="group" aria-label="${t('gallery_view')}">
+    ${g.slice(0, 5).map((it, i) => `<button type="button" class="zoom" data-lb="${i}" aria-label="Open image ${i + 1}: ${esc(it.cap)}">
+      ${pic(it.img, i === 0 ? 1200 : 800, i === 0 ? 900 : 600, it.cap, { label: 'GALLERY IMAGE', tone: ((tn + i - 1) % 6) + 1 })}
+      ${i === 4 && g.length > 5 ? `<span class="more-tag">${t('gallery_view')} (${g.length})</span>` : ''}</button>`).join('')}</div>
+    ${p.galleryNote ? `<p class="gal-note">${p.galleryNote}</p>` : ''}</div>`;
+
+  /* Unit types */
+  const units = p.unitTypes.length
+    ? `<table class="units"><thead><tr><th scope="col">${t('th_type')}</th><th scope="col">${t('th_count')}</th><th scope="col">${t('th_ref')}</th><th scope="col">${t('th_size')}</th></tr></thead>
+       <tbody>${p.unitTypes.map(u => `<tr><td>${u.name}</td><td>${u.count}</td><td>${u.ref}</td><td>${u.size || t('on_request')}</td></tr>`).join('')}</tbody></table>`
+    : `<p class="muted">${t('units_soon')}</p>`;
+  const plans = p.plans.length
+    ? `<div class="stack">${p.plans.map(x => `<figure style="margin:0">${pic(x.img, 1300, 800, x.cap, { label: 'FLOOR PLAN', tone: 6, natural: true })}<figcaption class="gal-note">${x.cap}</figcaption></figure>`).join('')}</div>`
+    : ph('FLOOR PLAN', 800, 520, `${p.name} – typical floor plan with dimensions`, { tone: 6 });
+  const master = p.masterPlan.length
+    ? `<div class="stack">${p.masterPlan.map(x => `<figure style="margin:0">${pic(x.img, 1300, 740, x.cap, { label: 'MASTER PLAN', tone: 3, natural: true })}<figcaption class="gal-note">${x.cap}</figcaption></figure>`).join('')}</div>`
+    : ph('MASTER PLAN', 1400, 800, `${p.name} – illustrated masterplan with phases and legend`, { tone: 3 });
+
+  /* Payment */
+  const pay = p.payment
+    ? `<div class="pay"><div><strong>${p.payment.down}</strong><span>${t('pay_down')}</span></div><div><strong>${p.payment.years}</strong><span>${t('pay_years')}</span></div>
+       <div><strong>${p.payment.delivery}</strong><span>${t('pay_delivery')}</span></div></div>${p.payment.note ? `<p class="muted" style="margin-top:1rem">${p.payment.note}</p>` : ''}`
+    : `<div class="pay-note"><h3>${t('pay_title')}</h3><p class="muted">${t('pay_text')}</p><a class="btn btn-dark" href="#/contact">${t('pay_btn')}</a></div>`;
+
+  /* Location */
+  const maps = p.maps.length
+    ? `<div class="pair">${p.maps.map(m => `<figure>${pic(m.img, 1000, 560, `${p.name} – ${m.cap}`, { label: 'MAP', tone: 4, natural: true })}<figcaption>${m.cap}</figcaption></figure>`).join('')}</div>`
+    : ph('MAP', 1200, 520, `embedded map showing ${p.name} in ${LOCATIONS[p.loc].en}`, { tone: 4 });
+  const loc = `<p class="muted">${p.area}${p.distance ? ' · ' + p.distance : ''}</p>${maps}
+    ${p.access.length ? `<h3 style="margin-top:1.6rem;font-size:1.3rem">${t('access_title')}</h3><ul class="tags">${p.access.map(a => `<li>${a}</li>`).join('')}</ul>` : ''}
+    ${p.neighbours.length ? `<h3 style="font-size:1.3rem">${t('near_title')}</h3><ul class="tags">${p.neighbours.map(a => `<li>${a}</li>`).join('')}</ul>` : ''}`;
+
+  return hero + `
+  <section class="section" style="padding-top:60px"><div class="container">
+    ${gallery}
+    <div class="detail-grid">
+      <div>
+        <div class="block reveal"><h2>${t('det_overview')}</h2>${p.overview.map(x => `<p>${x}</p>`).join('')}</div>
+        <div class="block reveal"><h2>${t('det_units')}</h2>${units}</div>
+        ${p.amenities.length ? `<div class="block reveal"><h2>${t('det_amen')}</h2>
+          <ul class="amen">${p.amenities.map(a => `<li>${icon(AMENITIES[a].icon, 34)}<span>${L(AMENITIES[a])}</span></li>`).join('')}</ul></div>` : ''}
+        <div class="block reveal"><h2>${t('det_master')}</h2>${master}</div>
+        <div class="block reveal"><h2>${t('det_plans')}</h2>${plans}</div>
+        <div class="block reveal"><h2>${t('det_pay')}</h2>${pay}</div>
+        <div class="block reveal"><h2>${t('det_loc')}</h2>${loc}</div>
+      </div>
+      <aside class="aside-card reveal" aria-labelledby="reg-h">
+        <h3 id="reg-h">${t('reg_title')}</h3><p class="muted">${t('reg_intro')}</p>
+        <form id="regForm" novalidate><div class="form-grid">
+          ${field({ id: 'r-name', label: t('f_name'), ac: 'name', full: true })}
+          ${field({ id: 'r-phone', label: t('f_phone'), type: 'tel', v: 'required phone', ac: 'tel', full: true })}
+          ${field({ id: 'r-email', label: t('f_email'), type: 'email', v: 'required email', ac: 'email', full: true })}
+          ${selectField('r-unit', t('f_unit'), p.unitTypes.length ? p.unitTypes.map(u => u.name).concat(t('opt_unsure')) : [t('opt_unsure')], true)}
+        </div><button class="btn btn-gold btn-block" type="submit" style="margin-top:1.2rem">${t('submit')}</button>
+        <p class="fine">By submitting you agree to be contacted about ${p.name}.</p></form>
+      </aside>
+    </div>
+    <nav class="pn" aria-label="Project navigation">
+      ${prev !== next ? `<a class="btn btn-outline" href="#/project/${prev.slug}">← ${t('prev')}: ${pName(prev)}</a>` : '<span></span>'}
+      ${next !== p ? `<a class="btn btn-outline" href="#/project/${next.slug}">${t('next')}: ${pName(next)} →</a>` : ''}
+    </nav>
+  </div></section>`;
+}
+function bindProject() {
+  bindForm($('#regForm'));
+  $$('[data-lb]').forEach(b => b.addEventListener('click', () => openLightbox(curProject.gallery, +b.dataset.lb, b)));
+}
+
+/* ---------- ABOUT ---------- */
+function viewAbout() {
+  return pageHero(t('about_eyebrow'), t('about_title'), t('about_intro'), 'DH Developments – villa residences', 6, '', 'villa_facade') + `
+  <section class="section"><div class="container split">
+    <div class="reveal"><p class="eyebrow">${t('story_title')}</p><h2>${t('story_h')}</h2>
+      <p>${t('story_1')}</p><p>${t('story_2')}</p></div>
+    <div class="reveal zoom">${pic('site8', 900, 1100, 'Main façade of a villa at The Villa, New Zayed', { label: 'STORY IMAGE', tone: 5 })}</div>
+  </div></section>
+  <section class="section bg-sand"><div class="container">
+    <div class="sec-head center reveal"><h2>${t('appr_title')}</h2></div>
+    <div class="vm">
+      <div class="reveal"><h3>${t('ap1')}</h3><p class="muted">${t('ap1d')}</p></div>
+      <div class="reveal"><h3>${t('ap2')}</h3><p class="muted">${t('ap2d')}</p></div>
+      <div class="reveal"><h3>${t('ap3')}</h3><p class="muted">${t('ap3d')}</p></div></div></div></section>
+  <section class="section bg-sand"><div class="container">
+    <div class="sec-head center reveal"><h2>${t('team_title')}</h2></div>
+    <div class="team">${TEAM.map((m, i) => `<div class="member reveal" style="transition-delay:${i * 80}ms"><div class="zoom">${ph('TEAM PHOTO', 600, 750, `portrait of ${m.name}, ${m.role}`, { tone: toneOf(i + 2) })}</div><h3>${m.name}</h3><p>${m.role}</p></div>`).join('')}</div>
+  </div></section>`;
+}
+
+/* ---------- CONTACT ---------- */
+function viewContact() {
+  const waUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(t('wa_msg'))}`;
+  return pageHero(t('contact_eyebrow'), t('contact_title'), t('contact_intro'), 'The Villa – community entrance', 4, '', 'villa_entrance') + `
+  <section class="section"><div class="container contact-grid">
+    <div class="reveal"><h2 style="font-size:2rem">${t('send')}</h2>
+      <form id="contactForm" novalidate><div class="form-grid">
+        ${field({ id: 'c-name', label: t('f_name'), ac: 'name' })}
+        ${field({ id: 'c-phone', label: t('f_phone'), type: 'tel', v: 'required phone', ac: 'tel' })}
+        ${field({ id: 'c-email', label: t('f_email'), type: 'email', v: 'required email', ac: 'email' })}
+        ${selectField('c-interest', t('f_interest'), PROJECTS.map(pName).concat([t('opt_visit'), t('opt_invest'), t('opt_other')]))}
+        <div class="field full"><label for="c-msg">${t('f_message')}</label><textarea id="c-msg" name="message"></textarea></div>
+      </div><button class="btn btn-dark" type="submit" style="margin-top:1.2rem">${t('submit')}</button></form></div>
+    <div class="reveal"><h2 style="font-size:2rem">${t('offices')}</h2>
+      <div class="office"><h3>${t('hq')}</h3><p>${SITE.address}</p></div>
+      <div class="office">
+        <p><strong>Tel:</strong> <a href="tel:${SITE.phone.replace(/\s/g, '')}">${SITE.phone}</a></p>
+        <p><strong>Email:</strong> <a href="mailto:${SITE.email}">${SITE.email}</a></p>
+        ${SITE.social.facebook ? `<p><strong>Facebook:</strong> <a href="${SITE.social.facebook}" target="_blank" rel="noopener">DH Developments</a></p>` : ''}</div>
+      <p style="margin-top:1.4rem"><a class="btn btn-wa" href="${waUrl}" target="_blank" rel="noopener">${t('wa_btn')}</a></p>
+    </div>
+  </div>
+  <div class="container reveal" style="margin-top:60px">
+    <iframe class="map-frame" title="${esc(SITE.map.label)} on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+      src="https://www.google.com/maps?q=${SITE.map.lat},${SITE.map.lng}&z=15&output=embed"></iframe>
+    <p class="gal-note"><a href="${SITE.map.url}" target="_blank" rel="noopener" style="text-decoration:underline">${t('map_open')}</a> · ${SITE.map.label}</p></div></section>`;
+}
+
+/* ---------- 404 ---------- */
+function viewNotFound() {
+  return pageHero('404', t('nf_title'), t('nf_text'), 'not found banner', 6) + `<section class="section"><div class="container"><a class="btn btn-dark" href="#/home">${t('back_home')}</a></div></section>`;
+}
+
+/* =========================================================
+   G. LIGHTBOX  (items = [{img, cap, photo?}])
+   ========================================================= */
+const lb = $('#lightbox'); let lbItems = [], lbIdx = 0, lbTrigger = null;
+function paintLb() {
+  const it = lbItems[lbIdx];
+  $('#lbImg').innerHTML = pic(it.img, 1600, 1000, it.cap, { label: 'GALLERY IMAGE', tone: toneOf(lbIdx + 1), eager: true });
+  $('#lbCap').textContent = it.cap; $('#lbCount').textContent = `${lbIdx + 1} / ${lbItems.length}`;
+}
+function openLightbox(items, i, trigger) {
+  lbItems = items; lbIdx = i; lbTrigger = trigger; paintLb(); lb.hidden = false; lb.classList.add('open');
+  document.body.style.overflow = 'hidden'; $('#lbClose').focus();
+}
+function closeLightbox() { lb.classList.remove('open'); lb.hidden = true; document.body.style.overflow = ''; if (lbTrigger && lbTrigger.isConnected) lbTrigger.focus(); }
+const stepLb = d => { lbIdx = (lbIdx + d + lbItems.length) % lbItems.length; paintLb(); };
+$('#lbClose').addEventListener('click', closeLightbox);
+$('#lbPrev').addEventListener('click', () => stepLb(-1));
+$('#lbNext').addEventListener('click', () => stepLb(1));
+lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-stage') || e.target.id === 'lbImg') closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  const rtl = document.documentElement.dir === 'rtl';
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') stepLb(rtl ? -1 : 1);
+  if (e.key === 'ArrowLeft') stepLb(rtl ? 1 : -1);
+  if (e.key === 'Tab') { /* simple focus trap across the three buttons */
+    const f = [$('#lbClose'), $('#lbPrev'), $('#lbNext')], i = f.indexOf(document.activeElement);
+    e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+  }
+});
+
+/* =========================================================
+   H. SCROLL EFFECTS: reveal, counters, navbar
+   ========================================================= */
+let io, counterIO;
+function initScrollFx() {
+  if (io) io.disconnect(); if (counterIO) counterIO.disconnect();
+  const items = $$('.reveal:not(.in)'), nums = $$('[data-count]');
+  const fmt = (n, s) => n.toLocaleString('en-US') + s;
+  if (!('IntersectionObserver' in window) || reduceMotion) {
+    items.forEach(x => x.classList.add('in')); nums.forEach(n => n.textContent = fmt(+n.dataset.count, n.dataset.suffix)); return;
+  }
+  io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(x => io.observe(x));
+  counterIO = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; counterIO.unobserve(e.target);
+    const el = e.target, end = +el.dataset.count, s = el.dataset.suffix, dur = 1800, t0 = performance.now();
+    (function tick(now) { const k = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(end * eased), k === 1 ? s : ''); if (k < 1) requestAnimationFrame(tick); })(t0);
+  }), { threshold: .5 });
+  nums.forEach(n => counterIO.observe(n));
+}
+function onScroll() { navEl.classList.toggle('solid', window.scrollY > 40); }
+window.addEventListener('scroll', onScroll, { passive: true });
+
+/* =========================================================
+   I. ROUTER (hash-based, with page transitions)
+   ========================================================= */
+const ROUTES = {
+  home:     { title: () => t('nav_home'),     view: viewHome,     bind: bindHome },
+  projects: { title: () => t('nav_projects'), view: viewProjects, bind: bindProjects },
+  project:  { title: ctx => { const p = PROJECTS.find(x => x.slug === ctx.param); return p ? pName(p) : t('nf_title'); }, view: viewProject, bind: ctx => { if (PROJECTS.some(x => x.slug === ctx.param)) bindProject(); } },
+  about:    { title: () => t('nav_about'),    view: viewAbout },
+  contact:  { title: () => t('nav_contact'),  view: viewContact,  bind: () => bindForm($('#contactForm')) }
+};
+function parseHash() {
+  const raw = location.hash.slice(1) || '/home', [path, qs] = raw.split('?'), parts = path.split('/').filter(Boolean);
+  return { name: parts[0] || 'home', param: parts[1], query: Object.fromEntries(new URLSearchParams(qs || '')) };
+}
+let navTimer;
+function navigate(instant) {
+  clearTimeout(navTimer);
+  const ctx = parseHash(), r = ROUTES[ctx.name] || { title: () => t('nf_title'), view: viewNotFound };
+  const render = () => {
+    app.innerHTML = r.view(ctx);
+    window.scrollTo(0, 0);
+    if (r.bind) r.bind(ctx);
+    document.title = `${r.title(ctx)} | ${lang === 'ar' ? SITE.nameAr : SITE.name}`;
+    $$('.nav-links a.link').forEach(a => a.removeAttribute('aria-current'));
+    const active = $(`.nav-links a[data-r="${ctx.name === 'project' ? 'projects' : ctx.name}"]`);
+    if (active) active.setAttribute('aria-current', 'page');
+    setMenu(false); onScroll(); initScrollFx();
+    app.focus({ preventScroll: true });
+  };
+  if (instant || reduceMotion) { render(); return; }
+  app.classList.add('leaving');
+  navTimer = setTimeout(() => {
+    render(); app.classList.remove('leaving'); app.classList.add('entering');
+    requestAnimationFrame(() => requestAnimationFrame(() => app.classList.remove('entering')));
+  }, 280);
+}
+window.addEventListener('hashchange', () => navigate(false));
+
+/* =========================================================
+   J. LANGUAGE (EN / AR, RTL-ready)
+   ========================================================= */
+function applyLang() {
+  document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  $('#skip').textContent = t('skip'); $('#waFloat').href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(t('wa_msg'))}`;
+  renderNav(); renderFooter();
+}
+function toggleLang() {
+  lang = lang === 'en' ? 'ar' : 'en';
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+  applyLang(); navigate(true);
+}
+
+/* =========================================================
+   K. INIT  (runs after the IMAGES block below has loaded)
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const fav = document.createElement('link'); fav.rel = 'icon'; fav.href = imgSrc('logo_mark'); if (fav.href) document.head.appendChild(fav);
+  applyLang();
+  navigate(true);
+});
+</script>
+
+<!-- =========================================================
+     IMAGES — one key per line, each pointing to a file in the images/ folder. Every key is used by name in the content data above.
+     To swap an image, replace its value with a normal path or URL, e.g.
+       "villa_hero":"images/the-villa-hero.jpg"
+     Sources: client-supplied DH Developments profile (renders, plans, maps, site photos, logo).
+     ========================================================= -->
+<script id="images">
+window.IMG = {
+"villa_hero":"images/villa_hero.jpg",
+"villa_facade":"images/villa_facade.jpg",
+"villa_aerial":"images/villa_aerial.jpg",
+"villa_gate":"images/villa_gate.jpg",
+"villa_pool":"images/villa_pool.jpg",
+"villa_street1":"images/villa_street1.jpg",
+"villa_street2":"images/villa_street2.jpg",
+"villa_sign":"images/villa_sign.jpg",
+"villa_shared":"images/villa_shared.jpg",
+"villa_entrance":"images/villa_entrance.jpg",
+"villa_large1":"images/villa_large1.jpg",
+"villa_large2":"images/villa_large2.jpg",
+"villa_twin1":"images/villa_twin1.jpg",
+"villa_twin2":"images/villa_twin2.jpg",
+"villa_twin_pool":"images/villa_twin_pool.jpg",
+"villa_sep1":"images/villa_sep1.jpg",
+"villa_sep_pool":"images/villa_sep_pool.jpg",
+"villa_sep2":"images/villa_sep2.jpg",
+"villa_sep3":"images/villa_sep3.jpg",
+"villa_garden":"images/villa_garden.jpg",
+"villa_fountain":"images/villa_fountain.jpg",
+"villa_masterplan":"images/villa_masterplan.jpg",
+"villa_layout":"images/villa_layout.jpg",
+"villa_plan_twin":"images/villa_plan_twin.jpg",
+"villa_plan_sep":"images/villa_plan_sep.jpg",
+"map_context":"images/map_context.jpg",
+"map_location":"images/map_location.jpg",
+"site1":"images/site1.jpg",
+"site2":"images/site2.jpg",
+"site3":"images/site3.jpg",
+"site4":"images/site4.jpg",
+"site5":"images/site5.jpg",
+"site6":"images/site6.jpg",
+"site7":"images/site7.jpg",
+"site8":"images/site8.jpg",
+"site9":"images/site9.jpg",
+"logo_light":"images/logo_light.png",
+"logo_mark":"images/logo_mark.png"
+};
+/* Image proportions [width, height] – used so plans and maps are never cropped. Update if you swap those images. */
+window.IMGDIM = {"villa_hero":[1600,900],"villa_facade":[1300,731],"villa_aerial":[1200,675],"villa_gate":[1200,675],"villa_pool":[1200,675],"villa_street1":[1013,570],"villa_street2":[1013,570],"villa_sign":[1013,570],"villa_shared":[1013,570],"villa_entrance":[1013,570],"villa_large1":[1013,570],"villa_large2":[1013,570],"villa_twin1":[1013,570],"villa_twin2":[1013,570],"villa_twin_pool":[1013,570],"villa_sep1":[1013,570],"villa_sep_pool":[1013,570],"villa_sep2":[1013,570],"villa_sep3":[1013,570],"villa_garden":[1100,619],"villa_fountain":[1100,619],"villa_masterplan":[1300,731],"villa_layout":[1300,731],"villa_plan_twin":[1300,731],"villa_plan_sep":[1000,563],"map_context":[1000,563],"map_location":[1000,563],"site1":[694,417],"site2":[693,417],"site3":[693,417],"site4":[694,417],"site5":[693,417],"site6":[693,417],"site7":[720,960],"site8":[720,960],"site9":[720,960]};
+</script>
+</body>
+</html>
